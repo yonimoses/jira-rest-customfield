@@ -167,7 +167,7 @@ jQuery(function () {
         registerAutocomplete();
 
         JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function (e, context, reason) {
-            if ($('#edit-issue-dialog').length > 0 || reason === 'inlineEditStarted' || reason === 'dialogReady') {
+            if (jQuery('#edit-issue-dialog').length > 0 || reason === 'inlineEditStarted' || reason === 'dialogReady') {
                 log('bind');
                 registerAutocomplete();
             }
