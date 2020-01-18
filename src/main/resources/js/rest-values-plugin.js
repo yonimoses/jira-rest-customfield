@@ -1,6 +1,6 @@
 jQuery.noConflict();
 console.log("HELLO FROM JS");
-jQuery(function () {
+AJS.$(function () {
 
     var IS_LOGGING_ENABLED = true;
 
@@ -47,8 +47,8 @@ jQuery(function () {
 
     function registerAutocomplete() {
 
-        jQuery('.rest-ui-autocomplete-input').each(function (index, element) {
-            var $me = jQuery(this);
+        AJS.$('.rest-ui-autocomplete-input').each(function (index, element) {
+            var $me = AJS.$(this);
             // Note, the element-id is 'databasevalues_<customfieldId>'.
             var customFieldId = $me.data('customfieldid');
             var projectKey = $me.data('projectkey');
@@ -56,16 +56,21 @@ jQuery(function () {
             var hiddenInputFieldId = $me.data('hiddeninputfieldid');
 
             var strJson = "{";
-            $.each($me.data(), function(i, v) {
-                strJson += '"' + i + '":"' + v + '",';
-            });
-            strJson = strJson.substring(0, strJson.length - 1);
-            strJson += '}';
-            var asJson = $.parseJSON( strJson );
+            try {
+                AJS.$.each($me.data(), function (i, v) {
+                    strJson += '"' + i + '":"' + v + '",';
+                });
+                strJson = strJson.substring(0, strJson.length - 1);
+                strJson += '}';
+                var asJson = $.parseJSON(strJson);
 
-            if(IS_LOGGING_ENABLED){
-                console.debug(asJson);
+                if (IS_LOGGING_ENABLED) {
+                    console.debug(asJson);
+                }
+            } catch (e) {
+                console.log(e)
             }
+
             // var json = '{id'
             // log('register autoComplete, id ' + $me.attr('id')
             //     + ', customFieldId ' + customFieldId
@@ -93,7 +98,9 @@ jQuery(function () {
                         success: function (data) {
                             log('Data returned ::' + JSON.stringify(data));
 
-                            var suggestions = $.map(data, function (item) {
+
+
+                            var suggestions = AJS.$.map(data, function (item) {
                                 return {
                                     plainText: item.inputlabel,
                                     formattedText: item.label,
@@ -138,11 +145,11 @@ jQuery(function () {
                 onSelect: function (e, $autocompleteElement, valueWithoutSuggestion, $choiceElement) {
                     log('onSelect: $choiceElement plaintext ' + $choiceElement.data('plaintext') + ', pkey ' + $choiceElement.data('pkey'));
                     log('  customFieldId ' + customFieldId + ', hiddenInputFieldId ' + hiddenInputFieldId);
-                    jQuery('#rest_' + customFieldId).val($choiceElement.data('plaintext')); // display the selected text
-                    jQuery('#' + hiddenInputFieldId).val($choiceElement.data('pkey')); // save selected id to hidden input
+                    AJS.$('#rest_' + customFieldId).val($choiceElement.data('plaintext')); // display the selected text
+                    AJS.$('#' + hiddenInputFieldId).val($choiceElement.data('pkey')); // save selected id to hidden input
                 },
                 onBlur: function ($autocompleteElement) {
-                    var $hiddenInputField = $('#' + hiddenInputFieldId);
+                    var $hiddenInputField = AJS.$('#' + hiddenInputFieldId);
 
                     log('onBlur: '
                         + $autocompleteElement.attr('id') + ' Val length ' + $autocompleteElement.val().length
@@ -167,7 +174,7 @@ jQuery(function () {
         registerAutocomplete();
 
         JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function (e, context, reason) {
-            if (jQuery('#edit-issue-dialog').length > 0 || reason === 'inlineEditStarted' || reason === 'dialogReady') {
+            if (AJS.$('#edit-issue-dialog').length > 0 || reason === 'inlineEditStarted' || reason === 'dialogReady') {
                 log('bind');
                 registerAutocomplete();
             }
