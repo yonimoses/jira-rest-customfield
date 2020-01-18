@@ -1,0 +1,17 @@
+#disable_html_escaping()
+yoni - label search
+#if ($value)
+    #if ($value.contains( "valuesViewHelper"))
+        #if ($urlPrefix && $urlPrefix != '')
+        <a href="${urlPrefix}">$textutils.htmlEncode($value)</a>
+        #else
+            $textutils.htmlEncode($value)
+        #end
+    #else
+        #if ($urlPrefix && $urlPrefix != '')
+        <a href="${urlPrefix}">$value</a>
+        #else
+            $value
+        #end
+    #end
+#end

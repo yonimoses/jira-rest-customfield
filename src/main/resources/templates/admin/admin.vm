@@ -1,0 +1,58 @@
+#* @vtlvariable name="com.bnhp.jira.plugin.rest.sap.config.ConfigEntity" type="com.thejaxx.jira.rest.plugin.config.ConfigEntity" *#
+<html>
+<head>
+    <title>$i18n.getText("rest.admin.title")</title>
+    <meta name="decorator" content="atl.admin"/>
+
+</head>
+<body>
+
+<div class="aui">
+    <h2>Jira Rest Values Plugin</h2>
+    #if($response_text)
+        <h3>$response_text</h3>
+    #end
+</div>
+
+<div class="issue-body-content">
+    <div class="aui-group issue-body">
+        <div class="aui-item issue-main-column">
+            <form id="rest-configuration" method="POST" class="aui">
+
+                <div class="field-group">
+                    <label for="name">$i18n.getText("rest.admin.url")</label>
+                    <input type="text" id="url" value="$url" name="url" class="text">
+                </div>
+                <div class="field-group">
+                    <label for="name">$i18n.getText("rest.admin.json.key")</label>
+                    <input type="text" id="key" value="$jsonKey" name="jsonKey" class="text">
+                </div>
+##                <div class="field-group">
+##                    <label for="name">$i18n.getText("rest.admin.json.value")</label>
+##                    <input type="text" id="value" value="$jsonValue" name="jsonValue" class="text">
+##                </div>
+
+                <div class="field-group">
+                    <input type="submit" value="$i18n.getText("rest.admin.save.label")" class="aui-button buttom">
+                </div>
+            </form>
+
+        </div>
+        <div id="viewissuesidebar" class="aui-item issue-side-column">
+            <h4>Example json</h4>
+            <pre><code>[
+    {
+        "$jsonKey": "SAMPLE KEY 1",
+    }
+]</code></pre>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+    asd
+console.log("HELLOW")
+  #include("/templates/admin/admin.js")
+console.log("HELLOW 2")
+</script>

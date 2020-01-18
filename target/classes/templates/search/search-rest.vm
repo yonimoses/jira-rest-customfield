@@ -1,0 +1,58 @@
+#* @vtlvariable name="customField" type="com.thejaxx.jira.rest.plugin.RestCustomField" *#
+#* @vtlvariable name="valuesViewHelper" type="com.thejaxx.jira.rest.plugin.RestValuesViewHelper" *#
+#* @vtlvariable name="ajaxViewHelper" type="com.thejaxx.jira.rest.plugin.ajax.AjaxViewHelper" *#
+#disable_html_escaping()
+
+#searcherEditHeader ($customField.id $customField.name)
+
+#if( $valuesViewHelper )
+
+    #if ($issue)
+
+        #if( $value)
+
+            ## Get the first value from the arraylist. If we are using AJAX, we only have 1 value
+            #if( $value.size() == 1)
+
+                #set($val = $value.get(0))
+                $valuesViewHelper.getAjaxHtmlForSearch( $customField.id, $val, $baseurl, $issue.getProjectObject().getKey(), $i18n )
+
+            #else
+                ## can come here if switching between advanced and simple searching
+                $valuesViewHelper.getAjaxHtmlForSearch( $customField.id, null, $baseurl, $issue.getProjectObject().getKey(), $i18n )
+
+            #end
+        #else
+
+            $valuesViewHelper.getAjaxHtmlForSearch( $customField.id, null, $baseurl, $issue.getProjectObject().getKey(), $i18n )
+
+        #end
+
+    #else
+
+        #if ($value)
+
+            ## Get the first value from the arraylist. If we are using AJAX, we only have 1 value
+            #if( $value.size() == 1)
+
+                #set($val = $value.get(0))
+
+                $valuesViewHelper.getAjaxHtmlForSearch( $customField.id, $val, $baseurl, null, $i18n )
+            #else
+
+                ## can come here if switching between advanced and simple searching
+                $valuesViewHelper.getAjaxHtmlForSearch( $customField.id, null, $baseurl, null, $i18n )
+
+            #end
+
+        #else
+            $valuesViewHelper.getAjaxHtmlForSearch( $customField.id, null, $baseurl, null, $i18n )
+
+        #end
+    #end
+#else
+
+Plugin error.
+#end
+
+#searcherEditFooter ($customField.id $customField.description)

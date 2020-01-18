@@ -1,0 +1,59 @@
+Manifest-Version: 1.0
+Atlassian-Build-Date: 2020-01-18T17:48:27+0200
+Atlassian-Plugin-Key: org.thejaxx.jira.rest.plugin.thejaxx-rest-plugin
+Bnd-LastModified: 1579362507806
+Build-Jdk: 1.8.0_232
+Built-By: yoni
+Bundle-Description: This plugin provides a custom field to be retrieved 
+ from url
+Bundle-DocURL: https://thejaxx.co.il/
+Bundle-ManifestVersion: 2
+Bundle-Name: Jira Rest Values Plugin
+Bundle-SymbolicName: org.thejaxx.jira.rest.plugin.thejaxx-rest-plugin
+Bundle-Vendor: Yoni Moses
+Bundle-Version: 1.0.0
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.example.plugins.tutorial.crud.api;version="1.0.0"
+Import-Package: org.springframework.osgi.context;resolution:=optional,or
+ g.springframework.osgi.service.exporter.support;resolution:=optional,or
+ g.springframework.osgi.service.importer.support;resolution:=optional,or
+ g.eclipse.gemini.blueprint.context;resolution:=optional,org.eclipse.gem
+ ini.blueprint.service.exporter;resolution:=optional,org.eclipse.gemini.
+ blueprint.service.exporter.support;resolution:=optional,org.eclipse.gem
+ ini.blueprint.service.importer.support;resolution:=optional,com.atlassi
+ an.core.util,com.atlassian.event.api,com.atlassian.jira.bc.issue,com.at
+ lassian.jira.bc.issue.search,com.atlassian.jira.bc.project,com.atlassia
+ n.jira.component,com.atlassian.jira.config,com.atlassian.jira.config.pr
+ operties,com.atlassian.jira.event.issue,com.atlassian.jira.event.type,c
+ om.atlassian.jira.issue,com.atlassian.jira.issue.customfields,com.atlas
+ sian.jira.issue.customfields.impl,com.atlassian.jira.issue.customfields
+ .manager,com.atlassian.jira.issue.customfields.persistence,com.atlassia
+ n.jira.issue.customfields.searchers,com.atlassian.jira.issue.customfiel
+ ds.searchers.renderer,com.atlassian.jira.issue.customfields.searchers.t
+ ransformer,com.atlassian.jira.issue.customfields.statistics,com.atlassi
+ an.jira.issue.customfields.view,com.atlassian.jira.issue.fields,com.atl
+ assian.jira.issue.fields.layout.field,com.atlassian.jira.issue.search,c
+ om.atlassian.jira.issue.search.searchers.impl,com.atlassian.jira.issue.
+ search.searchers.renderer,com.atlassian.jira.issue.search.searchers.tra
+ nsformer,com.atlassian.jira.issue.statistics,com.atlassian.jira.issue.t
+ ransport,com.atlassian.jira.jql.operand,com.atlassian.jira.jql.util,com
+ .atlassian.jira.permission,com.atlassian.jira.plugin.customfield,com.at
+ lassian.jira.security,com.atlassian.jira.user,com.atlassian.jira.util,c
+ om.atlassian.jira.util.json,com.atlassian.jira.web,com.atlassian.jira.w
+ eb.action,com.atlassian.plugin.osgi.factory,com.atlassian.query,com.atl
+ assian.query.clause,com.atlassian.query.operand,com.atlassian.query.ope
+ rator,com.atlassian.sal.api.pluginsettings,com.atlassian.templaterender
+ er,com.atlassian.velocity,com.google.common.base,com.google.common.coll
+ ect,javax.annotation,javax.net.ssl,javax.servlet,javax.servlet.http,jav
+ ax.xml.bind.annotation,org.apache.commons.lang,org.apache.commons.loggi
+ ng,org.apache.log4j,org.osgi.framework,org.slf4j,org.springframework.ao
+ p.support,org.springframework.beans,org.springframework.beans.factory,o
+ rg.springframework.beans.factory.annotation,org.springframework.beans.f
+ actory.config,org.springframework.beans.factory.parsing,org.springframe
+ work.beans.factory.support,org.springframework.beans.factory.xml,org.sp
+ ringframework.context.annotation,org.springframework.core.io,org.spring
+ framework.stereotype,org.springframework.util,org.springframework.web.b
+ ind,org.w3c.dom
+Originally-Created-By: Apache Maven Bundle Plugin
+Spring-Context: *
+Tool: Bnd-3.5.0.201709291849
