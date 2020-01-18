@@ -1,5 +1,0 @@
-#* @vtlvariable name="i18n" type="com.atlassian.jira.util.I18nHelper" *#
-#* @vtlvariable name="action" type="com.thejaxx.jira.rest.plugin.ajax.AjaxResultsPageAction" *#
-#disable_html_escaping()
-
-$action.getHtml($i18n)

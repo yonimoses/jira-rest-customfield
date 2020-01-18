@@ -1,1 +1,0 @@
-console.log("Rest admin loaded");var frm=$("#rest-configuration");frm.submit(function(a){a.preventDefault();$.ajax({type:frm.attr("method"),url:frm.attr("action"),data:frm.serialize(),success:function(b){console.log("Submission was successful.");console.log(b)},error:function(b){console.log("An error occurred.");console.log(b)},})});

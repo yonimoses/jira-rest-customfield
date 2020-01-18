@@ -1,8 +1,0 @@
-com.atlassian.jira.issue.customfields.manager.GenericConfigManager
-com.atlassian.jira.issue.customfields.persistence.CustomFieldValuePersister
-com.atlassian.jira.issue.customfields.searchers.transformer.CustomFieldInputHelper
-com.atlassian.jira.issue.fields.TextFieldCharacterLengthValidator
-com.atlassian.jira.jql.operand.JqlOperandResolver
-com.atlassian.jira.security.JiraAuthenticationContext
-com.atlassian.jira.web.FieldVisibilityManager
-com.atlassian.sal.api.pluginsettings.PluginSettingsFactory
