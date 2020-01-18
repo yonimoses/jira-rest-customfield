@@ -39,6 +39,30 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.ragedunicorn.tools.maven</groupId>
+                <artifactId>github-release-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <configuration>
+                            <owner>yonimoses</owner>
+                            <repository>jira-rest-customfield</repository>
+                            <server>github-oauth</server>
+                            <tagName>1.0.0</tagName>
+                            <name>jira-rest-plugin-release</name>
+                            <targetCommitish>master</targetCommitish>
+                            <body>First release</body>
+                            <releaseNotes>src/main/resources/release-notes.md</releaseNotes>
+                            <assets>
+                                <asset>target/thejaxx-rest-plugin-${version}.obr</asset>
+                                <asset>target/thejaxx-rest-plugin-${version}.jar</asset>
+                            </assets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>jira-maven-plugin</artifactId>
                 <version>${amps.version}</version>
