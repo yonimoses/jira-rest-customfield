@@ -1,9 +1,3 @@
-**Table Of Contents**
-
-[TOC]
-
-# Description/Features
-
 ## Inspired by
 
 This plugin is heavily inspired by `jdvp`.

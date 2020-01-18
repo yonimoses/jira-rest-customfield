@@ -5,6 +5,7 @@
 
 # Log file
 *.log
+github-release.sh
 
 # BlueJ files
 *.ctxt
