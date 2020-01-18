@@ -49,7 +49,7 @@
                             <owner>yonimoses</owner>
                             <repository>jira-rest-customfield</repository>
                             <server>github-oauth</server>
-                            <tagName>1.0.0</tagName>
+                            <tagName>1.0.1</tagName>
                             <name>jira-rest-plugin-release</name>
                             <targetCommitish>master</targetCommitish>
                             <body>First release</body>
