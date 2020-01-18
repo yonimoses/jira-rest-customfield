@@ -156,6 +156,9 @@ public class ConfigurationServlet extends HttpServlet {
             entity.setUrl(ServletRequestUtils.getStringParameter(req, "url", entity.getUrl()));
             entity.setJsonKey(ServletRequestUtils.getStringParameter(req, "jsonKey", entity.getJsonKey()));
             ConfigUtils.save(entity);
+            context.put("url", ConfigUtils.get().getUrl());
+            context.put("jsonKey", ConfigUtils.get().getJsonKey());
+            context.put("response_text", "Configuration saved");
         }
 
 
