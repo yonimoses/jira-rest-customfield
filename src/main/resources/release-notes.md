@@ -1,11 +1,7 @@
-# Release Notes
+# Release notes 
 
-## v1.0.1 - January 18th, 2020
+### 1.0.4
+*<small>January 19th, 2020</small>* 
 
-###fixes
-   - Replaced `$` with `AJS.$` - apparently it works.
-   - Fixes to `ConfigurationServlet` screen. added response text to users upon saving.
-
-## v1.0.0 - January 18th, 2020
-
-Initial release
+* **Support for `name` as default in json parser.**  
+Upon new installation of the plugin, users can use and test the field when typing a country without going to configuration first.

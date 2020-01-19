@@ -47,6 +47,17 @@ public class ConfigUtils {
         if (_settings.get(ConfigEntity._KEY) == null) {
             save(defaultEntity());
         }
+
+        //  1.0.4 release - migration for the default countries.
+        if (get().getUrl().equals("countries.json")) // it's a default request
+        {
+            ConfigEntity entity = get();
+            entity.setJsonKey("name");
+            entity.setJsonValue("name");
+            save(entity);
+        }
+
+
         logger.info("Plugin Config :: Key  - " + ConfigUtils.PLUGIN_KEY + ", Value - \r\n" + _gson.toJson(get()));
     }
 }

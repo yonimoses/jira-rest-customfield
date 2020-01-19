@@ -49,14 +49,14 @@
                             <owner>yonimoses</owner>
                             <repository>jira-rest-customfield</repository>
                             <server>github-oauth</server>
-                            <tagName>1.0.1</tagName>
-                            <name>jira-rest-plugin-release</name>
+                            <tagName>1.0.3</tagName>
+                            <name>1.0.3 Release</name>
                             <targetCommitish>master</targetCommitish>
-                            <body>First release</body>
+                            <body>Releasing</body>
                             <releaseNotes>src/main/resources/release-notes.md</releaseNotes>
                             <assets>
-                                <asset>target/thejaxx-rest-plugin-${version}.obr</asset>
-                                <asset>target/thejaxx-rest-plugin-${version}.jar</asset>
+                                <asset>target/thejaxx-rest-plugin-${project.version}.obr</asset>
+                                <asset>target/thejaxx-rest-plugin-${project.version}.jar</asset>
                             </assets>
                         </configuration>
                     </execution>
