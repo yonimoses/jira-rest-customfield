@@ -10,7 +10,8 @@ This plugin, build for JIRA 8+ , defined a rest custom field which allows you to
 After adding this custom field to an issue edit screen, you can select one of those values so it will be associated with the current issue.
 
 # Development
-Please refer to atlassian and their atlas cli on how to run/debug/develop it.
+Please refer to atlassian and their [atlassian-sdk](https://developer.atlassian.com/server/framework/atlassian-sdk/) on how to run/debug/develop it.
+It's been a journey learning it.
 
 # Installation
 
@@ -19,20 +20,23 @@ Please refer to atlassian and their atlas cli on how to run/debug/develop it.
 
 # Configuration
 
-The custom field can be configured with the Configure button in the addons section  in jira.:
+The custom field can be configured with the Configure button in the add-ons section in jira
 
-
-# Donations
-
-None is required. This plugin is fully done in my spare time.
 
 # Frequently Asked Questions
 
 ## Things are not working, where do I get help?
 
-If you have problems getting the plugin to work, please post a question on on [Atlassian Answers](https://answers.atlassian.com/) (tag your question with `jira` and `rest plugin`).
-or open a issue here. 
-For custom implementation or whatever, you can also post a issue on github 
+* General issue? post a question to [Atlassian Answers](https://answers.atlassian.com/) (tag your question with `jira` and `plugin`).
+* Open an issue here.
+ 
+
+## I need something special!
+
+* If it's not hard, and everyone will benefit from it - post an issue. 
+* If it's REALLY custom - post an issue also :).
+* Open a pull request, you're more then welcome. 
 
 ## How do I enable the logging of the plugin?
-the logger is `com.thejaxx` . besides that it's log4j as all plugins in JIRA.
+
+the logger is `com.thejaxx` . besides that it's log4j as all plugins in [JIRA](https://confluence.atlassian.com/doc/configuring-logging-181535215.html).
