@@ -5,8 +5,8 @@
 */
 
 (function ($) {
-    $.fn.autoCompleteCD = function (options) {
-        var o = $.extend({}, $.fn.autoCompleteCD.defaults, options);
+    AJS.$.fn.autoCompleteCD = function (options) {
+        var o = AJS.$.extend({}, AJS.$.fn.autoCompleteCD.defaults, options);
         o.multiChoiceDelimiterRE = new RegExp(o.multiChoiceDelimiter + '\s*', "g");
 
         function log(s) {
@@ -18,15 +18,15 @@
         // public methods
         if (typeof options == 'string') {
             this.each(function () {
-                var that = $(this);
+                var that = AJS.$(this);
                 if (options == 'destroy') {
-                    $(window).off('resize.autocompleteCD', that.updateSC);
+                    AJS.$(window).off('resize.autocompleteCD', that.updateSC);
                     that.off('blur.autocompleteCD focus.autocompleteCD keydown.autocompleteCD keyup.autocompleteCD');
                     if (that.data('autocompleteCD'))
                         that.attr('autocompleteCD', that.data('autocompleteCD'));
                     else
                         that.removeAttr('autocompleteCD');
-                    $(that.data('sc')).remove();
+                    AJS.$(that.data('sc')).remove();
                     that.removeData('sc').removeData('autocompleteCD');
                 }
             });
@@ -34,9 +34,9 @@
         }
 
         return this.each(function () {
-            var that = $(this);
+            var that = AJS.$(this);
             // sc: suggestions container
-            that.sc = $('<div class="autocompleteCD-suggestions ' + o.menuClass + '"></div>');
+            that.sc = AJS.$('<div class="autocompleteCD-suggestions ' + o.menuClass + '"></div>');
             that.data('sc', that.sc).data('autocompleteCD', that.attr('autocompleteCD'));
             that.attr('autocompleteCD', 'off');
             that.cache = {};
@@ -51,7 +51,7 @@
                 if (!resize) {
                     that.sc.show();
                     if (!that.sc.maxHeight) that.sc.maxHeight = parseInt(that.sc.css('max-height'));
-                    if (!that.sc.suggestionHeight) that.sc.suggestionHeight = $('.autocompleteCD-suggestion', that.sc).first().outerHeight();
+                    if (!that.sc.suggestionHeight) that.sc.suggestionHeight = AJS.$('.autocompleteCD-suggestion', that.sc).first().outerHeight();
                     if (that.sc.suggestionHeight)
                         if (!next) that.sc.scrollTop(0);
                         else {
@@ -64,21 +64,21 @@
                 }
             };
 
-            $(window).on('resize.autocompleteCD', that.updateSC);
+            AJS.$(window).on('resize.autocompleteCD', that.updateSC);
 
             that.sc.appendTo('body');
 
             that.sc.on('mouseleave', '.autocompleteCD-suggestion', function () {
-                $('.autocompleteCD-suggestion.selected').removeClass('selected');
+                AJS.$('.autocompleteCD-suggestion.selected').removeClass('selected');
             });
 
             that.sc.on('mouseenter', '.autocompleteCD-suggestion', function () {
-                $('.autocompleteCD-suggestion.selected').removeClass('selected');
-                $(this).addClass('selected');
+                AJS.$('.autocompleteCD-suggestion.selected').removeClass('selected');
+                AJS.$(this).addClass('selected');
             });
 
             that.sc.on('mousedown click', '.autocompleteCD-suggestion', function (e) {
-                var $choiceElement = $(this);
+                var $choiceElement = AJS.$(this);
                 var choiceElementDataVal = $choiceElement.data('val');
                 if (choiceElementDataVal || $choiceElement.hasClass('autocompleteCD-suggestion')) { // else outside click
                     o.onSelect(e, that, getValueWithoutSuggestion(that.val()), $choiceElement);
@@ -104,7 +104,7 @@
 
             that.on('blur.autocompleteCD', function () {
                 try {
-                    over_sb = $('.autocompleteCD-suggestions:hover').length;
+                    over_sb = AJS.$('.autocompleteCD-suggestions:hover').length;
                 } catch (e) {
                     over_sb = 0;
                 } // IE7 fix :hover
@@ -143,9 +143,9 @@
             that.on('keydown.autocompleteCD', function (e) {
                 // down (40), up (38)
                 if ((e.which == 40 || e.which == 38) && that.sc.html()) {
-                    var next, sel = $('.autocompleteCD-suggestion.selected', that.sc);
+                    var next, sel = AJS.$('.autocompleteCD-suggestion.selected', that.sc);
                     if (!sel.length) {
-                        next = (e.which == 40) ? $('.autocompleteCD-suggestion', that.sc).first() : $('.autocompleteCD-suggestion', that.sc).last();
+                        next = (e.which == 40) ? AJS.$('.autocompleteCD-suggestion', that.sc).first() : AJS.$('.autocompleteCD-suggestion', that.sc).last();
                         next.addClass('selected').data('val');
                     } else {
                         next = (e.which == 40) ? sel.next('.autocompleteCD-suggestion') : sel.prev('.autocompleteCD-suggestion');
@@ -164,7 +164,7 @@
                 else if (e.which == 27) that.val(that.last_val).sc.hide();
                 // enter or tab
                 else if (e.which == 13 || e.which == 9) {
-                    var $choiceElement = $('.autocompleteCD-suggestion.selected', that.sc);
+                    var $choiceElement = AJS.$('.autocompleteCD-suggestion.selected', that.sc);
                     if ($choiceElement.length && that.sc.is(':visible')) {
                         // Remove trailing newline. The newline occurs if the user selects a choice by pressing the Enter key.
                         var choiceElementDataVal = $choiceElement.data('val').replace(/[\n\r]*$/, '');
@@ -179,7 +179,7 @@
             });
 
             that.on('keyup.autocompleteCD', function (e) {
-                if (!~$.inArray(e.which, [13, 27, 35, 36, 37, 38, 39, 40])) {
+                if (!~AJS.$.inArray(e.which, [13, 27, 35, 36, 37, 38, 39, 40])) {
                     var searchTermn = that.val();
                     var lengthOfLastSuggestion = searchTermn.split(/,\s*/).pop().length;
                     if (lengthOfLastSuggestion >= o.minChars) {
@@ -214,7 +214,7 @@
         });
     };
 
-    $.fn.autoCompleteCD.defaults = {
+    AJS.$.fn.autoCompleteCD.defaults = {
         minChars: 2,
         delay: 150,
         cache: false,
@@ -262,4 +262,4 @@
         onBlur: function ($autocompleteElement) {
         }
     };
-}(jQuery));
+}(AJS.$));

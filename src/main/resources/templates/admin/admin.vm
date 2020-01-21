@@ -10,7 +10,7 @@
 <div class="aui">
     <h2>Jira Rest Values Plugin</h2>
     #if($response_text)
-        <h3 style="color: #b81900">$response_text</h3>
+        <h3 style="color: #b81900;text-align: center" >$response_text</h3>
     #end
 </div>
 

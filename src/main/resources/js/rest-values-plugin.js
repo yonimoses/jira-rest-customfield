@@ -1,4 +1,4 @@
-jQuery.noConflict();
+// jQuery.noConflict();
 console.log("HELLO FROM JS");
 AJS.$(function () {
 
@@ -78,14 +78,14 @@ AJS.$(function () {
             //     + ', ajaxPurposeName ' + ajaxPurposeName
             //     + ', hiddenInputFieldId ' + hiddenInputFieldId);
 
-            jQuery(this).autoCompleteCD({
+            AJS.$(this).autoCompleteCD({
                 minChars: 2,
                 source: function (
                     searchTerm,        // Current search term
                     choiceObjects,     // array with possible options
                     suggestFn    // Function with the suggestions
                 ) {
-                    jQuery.ajax({
+                    AJS.$.ajax({
                         url: AJS.contextPath() + '/secure/ajaxResultsPageAction!default.jspa',
                         dataType: "json",
                         data: {
