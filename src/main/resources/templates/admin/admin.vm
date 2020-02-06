@@ -18,11 +18,21 @@
     <div class="aui-group issue-body">
         <div class="aui-item issue-main-column">
             <form id="rest-configuration" method="POST" class="aui">
-
                 <div class="field-group">
                     <label for="name">$i18n.getText("rest.admin.url")</label>
                     <input type="text" id="url" value="$url" name="url" class="text">
                 </div>
+
+                <div class="field-group">
+                    <label for="name">Username (Basic-Auth)</label>
+                    <input type="text" id="username" value="$username" name="username" class="text">
+                </div>
+
+                <div class="field-group">
+                    <label for="name">Password</label>
+                    <input type="password" id="password" value="$password" name="password" class="text">
+                </div>
+
                 <div class="field-group">
                     <label for="name">$i18n.getText("rest.admin.json.key")</label>
                     <input type="text" id="key" value="$jsonKey" name="jsonKey" class="text">
@@ -36,7 +46,6 @@
                     <input type="submit" value="$i18n.getText("rest.admin.save.label")" class="aui-button buttom">
                 </div>
             </form>
-
         </div>
         <div id="viewissuesidebar" class="aui-item issue-side-column">
             <h4>Example json</h4>
@@ -50,9 +59,5 @@
 </div>
 </body>
 <script>
-
-    asd
-console.log("HELLOW")
   #include("/templates/admin/admin.js")
-console.log("HELLOW 2")
 </script>

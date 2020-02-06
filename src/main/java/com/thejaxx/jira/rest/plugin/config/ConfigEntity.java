@@ -17,6 +17,10 @@ public class ConfigEntity implements Serializable {
     @XmlElement
     private String url;
     @XmlElement
+    private String username;
+    @XmlElement
+    private String password;
+    @XmlElement
     private String renderingEditPattern;
     @XmlElement
     private String editPattern;
@@ -29,6 +33,22 @@ public class ConfigEntity implements Serializable {
     private String statisticsViewPattern;
     @XmlElement
     private String renderingSearchPattern;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getChangeLogViewPattern() {
         return changeLogViewPattern;

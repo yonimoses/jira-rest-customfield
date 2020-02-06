@@ -5,6 +5,7 @@ import com.atlassian.jira.util.json.JSONObject;
 import com.thejaxx.jira.rest.plugin.RestRow;
 import com.thejaxx.jira.rest.plugin.config.ConfigEntity;
 import com.thejaxx.jira.rest.plugin.config.ConfigUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.core.io.Resource;
 import org.springframework.util.FileCopyUtils;
@@ -52,7 +53,14 @@ public final class RestFetcher {
         try {
             JSONArray array;
             if (entity.getUrl().startsWith("http")) {
-                array = new JSONArray(HttpRequest.get(entity.getUrl()).body());
+                if(StringUtils.isNotEmpty(entity.getUsername())){
+                    logger.info("doQuery is sending username  " + entity.getUsername());
+
+                    array = new JSONArray(HttpRequest.get(entity.getUrl()).basic(entity.getUsername(), entity.getPassword()).body());
+                }else{
+                    logger.info("doQuery is not using any  username  ");
+                    array = new JSONArray(HttpRequest.get(entity.getUrl()).body());
+                }
             } else {
                 array = new JSONArray(loadLocal(entity.getUrl()));
             }

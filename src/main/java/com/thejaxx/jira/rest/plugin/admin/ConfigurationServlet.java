@@ -74,6 +74,8 @@ public class ConfigurationServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
 
         context.put("url", ConfigUtils.get().getUrl());
+        context.put("username", ConfigUtils.get().getUsername());
+        context.put("password", ConfigUtils.get().getPassword());
         context.put("jsonKey", ConfigUtils.get().getJsonKey());
 
 //        // (1)
@@ -154,9 +156,13 @@ public class ConfigurationServlet extends HttpServlet {
             context.put("response_text", "Permission denied. You can't save these configuration");
         } else {
             entity.setUrl(ServletRequestUtils.getStringParameter(req, "url", entity.getUrl()));
+            entity.setUsername(ServletRequestUtils.getStringParameter(req, "username", entity.getUsername()));
+            entity.setPassword(ServletRequestUtils.getStringParameter(req, "password", entity.getPassword()));
             entity.setJsonKey(ServletRequestUtils.getStringParameter(req, "jsonKey", entity.getJsonKey()));
             ConfigUtils.save(entity);
             context.put("url", ConfigUtils.get().getUrl());
+            context.put("password", ConfigUtils.get().getPassword());
+            context.put("username", ConfigUtils.get().getUsername());
             context.put("jsonKey", ConfigUtils.get().getJsonKey());
             context.put("response_text", "Configuration saved");
         }
