@@ -1,6 +1,6 @@
 # Release notes 
 
-### 1.0.8  
-*<small>January 21th, 2020</small>* 
+### 1.0.9
+*<small>Feb 6th, 2020</small>* 
 
-* **Replaced JQuery in autocomplete with AJS.$.**  
+* **Added support for basic auth when retrieving rest. check the config screen for more info**  
